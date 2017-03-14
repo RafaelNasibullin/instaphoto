@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   # GET /posts/1/edit
@@ -26,8 +26,8 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
-    if @post = Post.create(post_params)
+    @post = current_user.posts.build(post_params)
+    if @post.save
       flash[:success] = "Your post has been created!"
       redirect_to posts_path
     else
