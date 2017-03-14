@@ -9,6 +9,10 @@
 </head>
 
 <body>
+	<div class="container">
+		<% flash.each do |name, msg| %>
+		<%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
+		<% end %>
 	<nav class="navbar navbar-default">
 		<div class="navbar-container">
 			<div class="navbar-header">
@@ -36,9 +40,10 @@
 				</ul>
 			</div>
 		</div>
-	</div>
-</nav>
+	</nav>
 
-<%= yield %>
+	<%= yield %>
+	</div>
+
 </body>
 </html>

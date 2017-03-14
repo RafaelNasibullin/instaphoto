@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
-
 <div class="posts-wrapper row">
 	<% @posts.each do |post| %>
 	<div class="post">
@@ -19,8 +17,3 @@
 	</div>
 	<% end %>
 </div>
-
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
