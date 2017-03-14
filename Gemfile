@@ -11,6 +11,7 @@ gem 'rails', '~> 5.0.2'
 gem "paperclip", "~> 5.0.0"
 gem 'simple_form'
 gem 'devise' 
+gem 'acts_as_votable', '~> 0.10.0' 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
