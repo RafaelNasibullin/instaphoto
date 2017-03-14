@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user! 
+  before_action :authenticate_user!
+  before_action :owned_post, only: [:edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
 
@@ -66,4 +67,11 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:caption, :image)
     end
+
+    def owned_post  
+      unless current_user == @post.user
+        flash[:alert] = "That post doesn't belong to you!"
+        redirect_to root_path
+      end
+end  
   end
